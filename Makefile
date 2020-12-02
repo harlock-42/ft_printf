@@ -20,7 +20,7 @@ CP		= cp -R
 
 LS		= ls -la
 
-CFLAGS 		= -Werror -Wextra -Wall -Weverything -c
+CFLAGS 		= -Werror -Wextra -Wall -c
 
 INCLUDE 	= ./includes/ft_printf.h\
 		  ./includes/libft.h
@@ -75,7 +75,6 @@ $(NAME): $(OBJ) $(LIBFT) $(INCLUDE)
 	@echo Compiling executable $(NAME)..
 	@ar rc $(NAME) $(OBJ) $(LIBFT)
 	@$(LS)
-
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@echo Compiling $< in $@..

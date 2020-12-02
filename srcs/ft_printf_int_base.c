@@ -114,5 +114,5 @@ int				ft_int_base(t_printf *count, va_list *ap)
 	if ((len = ft_len(count, nb)) < 0)
 		return (-1);
 	ft_do_convert_int_base(count, nb, len);
-	return (1);
+	return (0);
 }

@@ -22,5 +22,5 @@ int				ft_char(t_printf *count, va_list *ap)
 	if ((c = (char)va_arg(*ap, int)) == '\0')
 		count->flag_is_c_0 = 1;
 	ft_write_buffer_c(count, c);
-	return (1);
+	return (0);
 }

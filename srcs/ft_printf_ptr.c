@@ -105,5 +105,5 @@ int				ft_ptr(t_printf *count, va_list *ap)
 	nb = (unsigned long long int)va_arg(*ap, void *);
 	len = ft_len(nb);
 	ft_do_convert_ptr(count, nb, len);
-	return (1);
+	return (0);
 }

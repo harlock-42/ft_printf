@@ -29,7 +29,7 @@ static	int	ft_convert(va_list *ap, t_printf *count, char *str)
 		return (-1);
 	if (ft_get_convert(ap, count, str) <= 0)
 		return (-1);
-	return (1);
+	return (0);
 }
 
 static	int	ft_cpy_convert(va_list *ap,
@@ -44,7 +44,7 @@ t_printf *count, char const *str, size_t *i)
 		if (j >= 127)
 		{
 			count->convert[j] = '\0';
-			if (ft_convert(ap, count, (char *)count->convert) <= 0)
+			if (ft_convert(ap, count, (char *)count->convert))
 				return (-1);
 			ft_bzero(count->convert, 128);
 			j = 0;
@@ -54,9 +54,9 @@ t_printf *count, char const *str, size_t *i)
 		++*i;
 	}
 	count->convert[j] = '\0';
-	if (ft_convert(ap, count, (char *)count->convert) <= 0)
+	if (ft_convert(ap, count, (char *)count->convert))
 		return (-1);
-	return (1);
+	return (0);
 }
 
 static	int	ft_conversion(va_list *ap, t_printf *count, char c)
@@ -78,11 +78,11 @@ static	int	ft_conversion(va_list *ap, t_printf *count, char c)
 	if (ret == 8)
 	{
 		ft_modulo(count);
-		return (1);
+		return (0);
 	}
-	if (((*ft_flag[ret])(count, ap) <= 0))
+	if (((*ft_flag[ret])(count, ap)))
 		return (-1);
-	return (1);
+	return (0);
 }
 
 static	int	ft_parsing(t_printf *count, va_list *ap, const char *str)
@@ -96,9 +96,9 @@ static	int	ft_parsing(t_printf *count, va_list *ap, const char *str)
 	{
 		if (i != 0 && str[i - 1] == '%')
 		{
-			if (ft_cpy_convert(ap, count, str, &i) <= 0)
+			if (ft_cpy_convert(ap, count, str, &i))
 				return (-1);
-			if ((ft_conversion(ap, count, str[i])) <= 0)
+			if ((ft_conversion(ap, count, str[i])))
 				return (-1);
 			++i;
 		}

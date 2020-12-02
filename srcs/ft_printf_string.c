@@ -99,5 +99,5 @@ int				ft_string(t_printf *count, va_list *ap)
 		return (ft_do_convert_string(count, "(null)"));
 	if (ft_do_convert_string(count, string) <= 0)
 		return (-1);
-	return (1);
+	return (0);
 }

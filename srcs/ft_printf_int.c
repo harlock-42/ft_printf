@@ -115,5 +115,5 @@ int				ft_int(t_printf *count, va_list *ap)
 	nb = va_arg(*ap, int);
 	len = ft_len(nb);
 	ft_do_convert_int(count, nb, len);
-	return (1);
+	return (0);
 }
